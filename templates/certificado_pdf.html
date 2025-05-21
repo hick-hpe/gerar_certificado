@@ -20,6 +20,14 @@
       position: relative;
     }
 
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
     .titulo {
       font-size: 32px;
       font-weight: bold;
@@ -51,27 +59,33 @@
       font-size: 14px;
     }
 
-    .logo {
-      width: 100px;
-      margin-bottom: 20px;
+    .rodape {
+      margin-top: 50px;
+      font-size: 14px;
     }
 
     .codigo {
-      position: absolute;
-      right: 30px;
+      margin-bottom: 10px;
+    }
+
+    .qrcode img {
+      width: 80px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="codigo">
-  <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code" width="100">
-</div>
+    <!-- LOGO ACIMA -->
+    <div class="logo">
+      <img src="{{ logo_url }}" alt="Logo">
+    </div>
+
     <div class="titulo">CERTIFICADO DE CONCLUSÃO</div>
+
     <div class="texto">
       Certificamos que <span class="negrito">{{ nome }}</span> concluiu com êxito o curso<br>
       <span class="negrito">{{ curso }}</span>, com carga horária de
-      <span class="negrito">{{ carga_horaria }}</span>,<br>
+      <span class="negrito">{{ carga_horaria }}</span> horas,<br>
       realizado em <span class="negrito">{{ data }}</span>.
     </div>
 
@@ -79,8 +93,12 @@
       <div class="linha-assinatura">Assinatura do Responsável</div>
     </div>
 
-    <div class="codigo">
-      ABCDE12345
+    <!-- CÓDIGO E QR CODE ABAIXO -->
+    <div class="rodape">
+      <div class="codigo">Código: ABCDE12345</div>
+      <div class="qrcode">
+        <img src="/static/qrcode.png" alt="QR Code">
+      </div>
     </div>
   </div>
 </body>
