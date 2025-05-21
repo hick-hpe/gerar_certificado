@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Certificado</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+    .formulario { background: #fff; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 10px #ccc; }
+    input, button { padding: 10px; margin-top: 10px; width: 100%; }
+    button { background-color: #0e52d4; color: #fff; border: none; cursor: pointer; }
+    h2 { text-align: center; color: #0e52d4; }
+  </style>
+</head>
+<body>
+  <div class="formulario">
+    <h2>Gerador de Certificado</h2>
+    <form action="/gerar_certificado" method="POST">
+      <input type="text" name="nome" placeholder="Nome completo" required>
+      <input type="text" name="curso" placeholder="Curso" required>
+      <input type="text" name="carga_horaria" placeholder="Carga horária (ex: 20 horas)" required>
+      <input type="date" name="data" required>
+      <button type="submit">Gerar Certificado PDF</button>
+    </form>
+  </div>
+</body>
+</html>
