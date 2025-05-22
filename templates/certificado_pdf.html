@@ -5,100 +5,110 @@
   <title>Certificado</title>
   <style>
     body {
-      font-family: 'Georgia', serif;
-      background: #fff;
-      padding: 60px;
-      border: 20px solid #0e52d4;
-      max-width: 800px;
-      margin: auto;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fdfdfd;
     }
 
-    .container {
-      border: 6px double #0e52d4;
-      padding: 40px;
-      text-align: center;
+    .certificado {
+      width: 1000px;
+      height: 560px;
+      background-image: url('data:image/png;base64,{{ background_base64 }}');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 80px;
+      box-sizing: border-box;
+      color: #2e2e2e;
       position: relative;
     }
 
-    .logo {
-      margin-bottom: 20px;
-    }
-
-    .logo img {
-      width: 100px;
-    }
-
     .titulo {
+      color: #6b26b9;
       font-size: 32px;
       font-weight: bold;
-      color: #0e52d4;
+      text-transform: uppercase;
+    }
+
+    .subtitulo {
+      font-size: 16px;
       margin-bottom: 40px;
     }
 
-    .texto {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #222;
+    .nome {
+      font-size: 28px;
+      font-family: 'Georgia', cursive;
+      margin: 20px 0;
     }
 
-    .negrito {
+    .descricao {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .curso {
       font-weight: bold;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .data {
+      font-size: 14px;
+      margin-top: 40px;
     }
 
     .assinatura {
-      margin-top: 60px;
+      position: absolute;
+      bottom: 60px;
+      right: 80px;
       text-align: center;
+      font-size: 14px;
     }
 
-    .linha-assinatura {
-      margin-top: 40px;
+    .linha {
+      width: 200px;
       border-top: 1px solid #000;
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 14px;
+      margin-bottom: 5px;
     }
 
-    .rodape {
-      margin-top: 50px;
-      font-size: 14px;
+    .logo {
+      position: absolute;
+      top: 60px;
+      right: 80px;
     }
 
-    .codigo {
-      margin-bottom: 10px;
+    .logo img {
+      width: 120px;
     }
 
-    .qrcode img {
-      width: 80px;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- LOGO ACIMA -->
-    <div class="logo">
-      <img src="file://{{ logo_url }}" width="200">
+  <div class="certificado">
+    <div class="titulo">CERTIFICADO</div>
+    <div class="subtitulo">DE CONCLUSÃO</div>
+
+    <div class="nome">{{ nome }}</div>
+
+    <div class="descricao">
+      Concluiu com êxito o curso<br>
+      <span class="curso">{{ curso }}</span>
     </div>
 
-    <div class="titulo">CERTIFICADO DE CONCLUSÃO</div>
-
-    <div class="texto">
-      Certificamos que <span class="negrito">{{ nome }}</span> concluiu com êxito o curso<br>
-      <span class="negrito">{{ curso }}</span>, com carga horária de
-      <span class="negrito">{{ carga_horaria }}</span> horas,<br>
-      realizado em <span class="negrito">{{ data }}</span>.
+    <div class="descricao">
+      O participante obteve <strong>{{ percentual_acertos }}%</strong> de acertos no quiz final de avaliação.<br>
+      Ao atingir esse desempenho, demonstrou domínio dos conhecimentos abordados e está oficialmente certificado pela <strong>X-Dev</strong>.
     </div>
+
+    <div class="data">{{ data }}</div>
 
     <div class="assinatura">
-      <div class="linha-assinatura">Assinatura do Responsável</div>
+      <div class="linha"></div>
+      Nome da assinatura
     </div>
 
-    <!-- CÓDIGO E QR CODE ABAIXO -->
-    <div class="rodape">
-      <div class="codigo">Código: ABCDE12345</div>
-      <div class="qrcode">
-        <img src="/static/qrcode.png" alt="QR Code">
-      </div>
+    <div class="logo">
+      <img src="data:image/png;base64,{{ logo_base64 }}" alt="Logo">
     </div>
   </div>
 </body>
